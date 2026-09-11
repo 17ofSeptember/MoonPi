@@ -1,4 +1,6 @@
+<div align="center">
 # MoonPi
+<img width="500" height="500" alt="logo-removebg-preview" src="https://github.com/user-attachments/assets/d257b744-3d3a-4edb-9d9b-f99af665692a" />
 
 **MoonPi** is a visual, node-based hardware workstation for the Raspberry Pi.
 
@@ -11,10 +13,12 @@ You place components on a canvas, connect them to Raspberry Pi pins, connect log
 > **Creator and maintainer:** [17ofSeptember](https://github.com/17ofSeptember)  
 > **Website:** https://www.awrynetwork.com/links  
 > **Contact:** awrynetwork@gmail.com
+> **Buy Me A Coffee!** https://buymeacoffee.com/17ofseptember
 
 ---
 
 ## What can MoonPi do?
+<img width="1579" height="765" alt="1" src="https://github.com/user-attachments/assets/bf41300a-a0fa-410d-8a06-dd3373cce481" />
 
 MoonPi is designed to make Raspberry Pi hardware projects easier to understand and experiment with.
 
@@ -689,4 +693,4 @@ See the [`LICENSE`](LICENSE) file for the complete license text.
 MoonPi controls physical electronic hardware. Incorrect wiring or unsuitable components can damage a Raspberry Pi, connected equipment, or other electronics.
 
 The software is provided without warranty. Always verify your wiring and component specifications before applying power.
-
+</div>
