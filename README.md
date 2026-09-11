@@ -6,6 +6,9 @@
 
 **MoonPi** is a visual, node-based hardware workstation for the Raspberry Pi.</div>
 
+video: Control RaspberryPi GPIO Pins Without Scripting Using MoonPi beta. Visual No Code Programming - Pi3 
+https://youtu.be/rRDCkHY19WQ
+
 Instead of writing a full program every time you want to control an LED, read a button, run a timer, or connect hardware together, MoonPi lets you build your project visually in a web browser.
 
 You place components on a canvas, connect them to Raspberry Pi pins, connect logic nodes together, validate the design, and run it on the Raspberry Pi.
