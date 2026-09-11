@@ -1,0 +1,64 @@
+{
+  "format": "moonpi-project",
+  "version": 1,
+  "id": "10000000-0000-4000-8000-000000000001",
+  "name": "LED Blink",
+  "board": {
+    "definition": "moonpi.board.rpi3b-plus",
+    "node_id": "10000000-0000-4000-8000-000000000002",
+    "position": {
+      "x": 80,
+      "y": 60
+    }
+  },
+  "nodes": [
+    {
+      "id": "10000000-0000-4000-8000-000000000003",
+      "component": "moonpi.led",
+      "position": {
+        "x": 640,
+        "y": 180
+      },
+      "properties": {
+        "resistor_ohms": 1000
+      }
+    },
+    {
+      "id": "10000000-0000-4000-8000-000000000004",
+      "component": "moonpi.interval",
+      "position": {
+        "x": 640,
+        "y": 420
+      },
+      "properties": {
+        "interval_ms": 150
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "20000000-0000-4000-8000-000000000001",
+      "kind": "hardware",
+      "source": "10000000-0000-4000-8000-000000000002",
+      "source_port": "header.11",
+      "target": "10000000-0000-4000-8000-000000000003",
+      "target_port": "signal"
+    },
+    {
+      "id": "20000000-0000-4000-8000-000000000002",
+      "kind": "hardware",
+      "source": "10000000-0000-4000-8000-000000000002",
+      "source_port": "header.6",
+      "target": "10000000-0000-4000-8000-000000000003",
+      "target_port": "ground"
+    },
+    {
+      "id": "20000000-0000-4000-8000-000000000003",
+      "kind": "logic",
+      "source": "10000000-0000-4000-8000-000000000004",
+      "source_port": "tick",
+      "target": "10000000-0000-4000-8000-000000000003",
+      "target_port": "toggle"
+    }
+  ]
+}

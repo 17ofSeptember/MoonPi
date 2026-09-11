@@ -1,0 +1,45 @@
+{
+  "schema": "moonpi-component",
+  "schema_version": 1,
+  "revision": 1,
+  "id": "moonpi.logic.constant_number",
+  "name": "Number",
+  "category": "Data",
+  "description": "Emits a configured number at Run or on trigger.",
+  "aliases": [],
+  "driver": {
+    "id": "moonpi.driver.constant_number",
+    "api_version": 1
+  },
+  "connections": [],
+  "ports": [
+    {
+      "id": "emit",
+      "type": "Trigger",
+      "direction": "input"
+    },
+    {
+      "id": "value",
+      "type": "Float",
+      "direction": "output"
+    }
+  ],
+  "properties": {
+    "value": {
+      "type": "number",
+      "title": "Value",
+      "default": 25,
+      "minimum": -1000000000,
+      "maximum": 1000000000
+    }
+  },
+  "electrical": {
+    "logic_voltage": 0,
+    "max_current_ma": 0,
+    "requires_level_shifter": false,
+    "requires_resistor": false,
+    "safe_state": false,
+    "notes": "Virtual node; no direct hardware access."
+  },
+  "documentation": "docs/GRAPH_FORMAT.md"
+}

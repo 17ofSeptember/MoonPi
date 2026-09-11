@@ -1,0 +1,173 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "version": {
+      "const": 1
+    },
+    "command": {
+      "enum": [
+        "SetDesign",
+        "Validate",
+        "Apply",
+        "Start",
+        "Stop",
+        "EmergencyStop",
+        "ClearEmergency",
+        "Save",
+        "Load",
+        "InjectInput",
+        "Trigger"
+      ]
+    },
+    "expected_revision": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "node": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+    },
+    "value": { "type": "boolean" },
+    "port": { "type": "string", "minLength": 1, "maxLength": 256 },
+    "project": {
+      "type": "object",
+      "properties": {
+        "format": {
+          "const": "moonpi-project"
+        },
+        "version": {
+          "const": 1
+        },
+        "id": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 256
+        },
+        "board": {
+          "type": "object",
+          "properties": {
+            "definition": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256
+            },
+            "node_id": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+            },
+            "position": {
+              "type": "object",
+              "properties": {
+                "x": {
+                  "type": "number",
+                  "minimum": -100000,
+                  "maximum": 100000
+                },
+                "y": {
+                  "type": "number",
+                  "minimum": -100000,
+                  "maximum": 100000
+                }
+              },
+              "required": ["x", "y"],
+              "additionalProperties": false
+            }
+          },
+          "required": ["definition", "node_id", "position"],
+          "additionalProperties": false
+        },
+        "nodes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+              },
+              "component": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 256
+              },
+              "position": {
+                "type": "object",
+                "properties": {
+                  "x": {
+                    "type": "number",
+                    "minimum": -100000,
+                    "maximum": 100000
+                  },
+                  "y": {
+                    "type": "number",
+                    "minimum": -100000,
+                    "maximum": 100000
+                  }
+                },
+                "required": ["x", "y"],
+                "additionalProperties": false
+              },
+              "properties": {
+                "type": "object"
+              },
+              "extensions": {
+                "type": "object"
+              }
+            },
+            "required": ["id", "component", "position", "properties"],
+            "additionalProperties": true
+          },
+          "maxItems": 128
+        },
+        "edges": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+              },
+              "kind": {
+                "enum": ["hardware", "logic"]
+              },
+              "source": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+              },
+              "source_port": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 256
+              },
+              "target": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+              },
+              "target_port": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 256
+              }
+            },
+            "required": ["id", "kind", "source", "source_port", "target", "target_port"],
+            "additionalProperties": true
+          },
+          "maxItems": 512
+        },
+        "extensions": {
+          "type": "object"
+        }
+      },
+      "required": ["format", "version", "id", "name", "board", "nodes", "edges"],
+      "additionalProperties": true
+    }
+  },
+  "required": ["version", "command", "expected_revision"],
+  "additionalProperties": false
+}

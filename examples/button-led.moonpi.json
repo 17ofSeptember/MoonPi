@@ -1,0 +1,82 @@
+{
+  "format": "moonpi-project",
+  "version": 1,
+  "id": "40000000-0000-4000-8000-000000000001",
+  "name": "Button toggles LED",
+  "board": {
+    "definition": "moonpi.board.rpi3b-plus",
+    "node_id": "40000000-0000-4000-8000-000000000002",
+    "position": {
+      "x": 40,
+      "y": 50
+    }
+  },
+  "nodes": [
+    {
+      "id": "40000000-0000-4000-8000-000000000003",
+      "component": "moonpi.button",
+      "position": {
+        "x": 560,
+        "y": 70
+      },
+      "properties": {
+        "pull_up": true,
+        "active_low": true,
+        "debounce_ms": 30
+      }
+    },
+    {
+      "id": "40000000-0000-4000-8000-000000000004",
+      "component": "moonpi.led",
+      "position": {
+        "x": 870,
+        "y": 80
+      },
+      "properties": {
+        "resistor_ohms": 1000
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "40000000-0000-4000-8000-000000000100",
+      "kind": "hardware",
+      "source": "40000000-0000-4000-8000-000000000002",
+      "source_port": "header.13",
+      "target": "40000000-0000-4000-8000-000000000003",
+      "target_port": "signal"
+    },
+    {
+      "id": "40000000-0000-4000-8000-000000000101",
+      "kind": "hardware",
+      "source": "40000000-0000-4000-8000-000000000002",
+      "source_port": "header.6",
+      "target": "40000000-0000-4000-8000-000000000003",
+      "target_port": "ground"
+    },
+    {
+      "id": "40000000-0000-4000-8000-000000000102",
+      "kind": "hardware",
+      "source": "40000000-0000-4000-8000-000000000002",
+      "source_port": "header.11",
+      "target": "40000000-0000-4000-8000-000000000004",
+      "target_port": "signal"
+    },
+    {
+      "id": "40000000-0000-4000-8000-000000000103",
+      "kind": "hardware",
+      "source": "40000000-0000-4000-8000-000000000002",
+      "source_port": "header.6",
+      "target": "40000000-0000-4000-8000-000000000004",
+      "target_port": "ground"
+    },
+    {
+      "id": "40000000-0000-4000-8000-000000000104",
+      "kind": "logic",
+      "source": "40000000-0000-4000-8000-000000000003",
+      "source_port": "pressed",
+      "target": "40000000-0000-4000-8000-000000000004",
+      "target_port": "toggle"
+    }
+  ]
+}

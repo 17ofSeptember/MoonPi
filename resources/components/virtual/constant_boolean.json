@@ -1,0 +1,43 @@
+{
+  "schema": "moonpi-component",
+  "schema_version": 1,
+  "revision": 1,
+  "id": "moonpi.logic.constant_boolean",
+  "name": "Boolean",
+  "category": "Logic",
+  "description": "Emits a configured Boolean at Run or on trigger.",
+  "aliases": [],
+  "driver": {
+    "id": "moonpi.driver.constant_boolean",
+    "api_version": 1
+  },
+  "connections": [],
+  "ports": [
+    {
+      "id": "emit",
+      "type": "Trigger",
+      "direction": "input"
+    },
+    {
+      "id": "value",
+      "type": "Boolean",
+      "direction": "output"
+    }
+  ],
+  "properties": {
+    "value": {
+      "type": "boolean",
+      "title": "Value",
+      "default": true
+    }
+  },
+  "electrical": {
+    "logic_voltage": 0,
+    "max_current_ma": 0,
+    "requires_level_shifter": false,
+    "requires_resistor": false,
+    "safe_state": false,
+    "notes": "Virtual node; no direct hardware access."
+  },
+  "documentation": "docs/GRAPH_FORMAT.md"
+}

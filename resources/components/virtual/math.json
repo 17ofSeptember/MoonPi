@@ -1,0 +1,56 @@
+{
+  "schema": "moonpi-component",
+  "schema_version": 1,
+  "revision": 1,
+  "id": "moonpi.logic.math",
+  "name": "Math",
+  "category": "Logic",
+  "description": "Applies arithmetic to each incoming number.",
+  "aliases": [],
+  "driver": {
+    "id": "moonpi.driver.math",
+    "api_version": 1
+  },
+  "connections": [],
+  "ports": [
+    {
+      "id": "input",
+      "type": "Float",
+      "direction": "input"
+    },
+    {
+      "id": "value",
+      "type": "Float",
+      "direction": "output"
+    }
+  ],
+  "properties": {
+    "operand": {
+      "type": "number",
+      "title": "Operand",
+      "default": 1,
+      "minimum": -1000000000,
+      "maximum": 1000000000
+    },
+    "operation": {
+      "type": "string",
+      "title": "Operation",
+      "default": "add",
+      "enum": [
+        "add",
+        "subtract",
+        "multiply",
+        "divide"
+      ]
+    }
+  },
+  "electrical": {
+    "logic_voltage": 0,
+    "max_current_ma": 0,
+    "requires_level_shifter": false,
+    "requires_resistor": false,
+    "safe_state": false,
+    "notes": "Virtual node; no direct hardware access."
+  },
+  "documentation": "docs/GRAPH_FORMAT.md"
+}

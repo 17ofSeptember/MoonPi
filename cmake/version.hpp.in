@@ -1,0 +1,9 @@
+#pragma once
+namespace moonpi::metadata {
+inline constexpr auto name = "Moon Pi";
+inline constexpr auto author = "17ofSeptember";
+inline constexpr auto version = "@PROJECT_VERSION@";
+inline constexpr auto architecture = "@CMAKE_SYSTEM_PROCESSOR@";
+inline constexpr int schema_version = 1;
+inline constexpr int driver_api_version = 1;
+}

@@ -1,0 +1,53 @@
+{
+  "schema": "moonpi-component",
+  "schema_version": 1,
+  "revision": 1,
+  "id": "moonpi.relay-module",
+  "name": "Relay module (active HIGH)",
+  "category": "Output modules",
+  "description": "On/off control of an externally powered relay module with a 3.3 V compatible, active-HIGH input.",
+  "aliases": [
+    "relay",
+    "switch load"
+  ],
+  "driver": {
+    "id": "moonpi.driver.gpio_output",
+    "api_version": 1
+  },
+  "connections": [
+    {
+      "id": "signal",
+      "role": "gpio_output",
+      "required": true,
+      "voltage": 3.3
+    },
+    {
+      "id": "ground",
+      "role": "ground",
+      "required": true,
+      "voltage": 0
+    }
+  ],
+  "ports": [
+    {
+      "id": "toggle",
+      "type": "Trigger",
+      "direction": "input"
+    },
+    {
+      "id": "set",
+      "type": "Boolean",
+      "direction": "input"
+    }
+  ],
+  "properties": {},
+  "electrical": {
+    "logic_voltage": 3.3,
+    "max_current_ma": 1,
+    "requires_level_shifter": false,
+    "requires_resistor": false,
+    "safe_state": false,
+    "notes": "Use an externally powered driver module with a 3.3 V compatible input drawing at most 1 mA, common GND, and LOW = off. Never connect a bare coil, motor, buzzer or load directly to GPIO. Use appropriate inductive protection. Active-LOW modules are not supported."
+  },
+  "documentation": "https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#gpio"
+}

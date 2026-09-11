@@ -1,0 +1,40 @@
+{
+  "schema": "moonpi-component",
+  "schema_version": 1,
+  "revision": 1,
+  "id": "moonpi.interval",
+  "name": "Interval",
+  "category": "Timing",
+  "description": "Native monotonic interval; skips missed ticks and starts only on Run.",
+  "aliases": [],
+  "driver": {
+    "id": "moonpi.driver.interval",
+    "api_version": 1
+  },
+  "connections": [],
+  "ports": [
+    {
+      "id": "tick",
+      "type": "Trigger",
+      "direction": "output"
+    }
+  ],
+  "properties": {
+    "interval_ms": {
+      "type": "integer",
+      "title": "Interval (ms)",
+      "default": 500,
+      "minimum": 50,
+      "maximum": 86400000
+    }
+  },
+  "electrical": {
+    "logic_voltage": 3.3,
+    "max_current_ma": 0,
+    "requires_level_shifter": false,
+    "requires_resistor": false,
+    "safe_state": false,
+    "notes": "Simulation first. Verify the exact physical circuit before hardware use."
+  },
+  "documentation": "https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#gpio"
+}

@@ -1,0 +1,54 @@
+{
+  "schema": "moonpi-component",
+  "schema_version": 1,
+  "revision": 1,
+  "id": "moonpi.logic.boolean",
+  "name": "Boolean logic",
+  "category": "Logic",
+  "description": "Combines Boolean values. NOT uses input a.",
+  "aliases": [],
+  "driver": {
+    "id": "moonpi.driver.boolean",
+    "api_version": 1
+  },
+  "connections": [],
+  "ports": [
+    {
+      "id": "a",
+      "type": "Boolean",
+      "direction": "input"
+    },
+    {
+      "id": "b",
+      "type": "Boolean",
+      "direction": "input"
+    },
+    {
+      "id": "value",
+      "type": "Boolean",
+      "direction": "output"
+    }
+  ],
+  "properties": {
+    "operation": {
+      "type": "string",
+      "title": "Operation",
+      "default": "and",
+      "enum": [
+        "and",
+        "or",
+        "xor",
+        "not"
+      ]
+    }
+  },
+  "electrical": {
+    "logic_voltage": 0,
+    "max_current_ma": 0,
+    "requires_level_shifter": false,
+    "requires_resistor": false,
+    "safe_state": false,
+    "notes": "Virtual node; no direct hardware access."
+  },
+  "documentation": "docs/GRAPH_FORMAT.md"
+}

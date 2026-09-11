@@ -1,0 +1,122 @@
+{
+  "schema": "moonpi-component",
+  "schema_version": 1,
+  "revision": 1,
+  "id": "moonpi.logic.sequence",
+  "name": "Sequence",
+  "category": "Timing",
+  "description": "Run up to four timed steps. Start manually or from a Trigger; cancel stops pending steps.",
+  "aliases": [],
+  "driver": {
+    "id": "moonpi.driver.sequence",
+    "api_version": 1
+  },
+  "connections": [],
+  "ports": [
+    {
+      "id": "start",
+      "type": "Trigger",
+      "direction": "input"
+    },
+    {
+      "id": "cancel",
+      "type": "Trigger",
+      "direction": "input"
+    },
+    {
+      "id": "step_1",
+      "type": "Trigger",
+      "direction": "output"
+    },
+    {
+      "id": "step_2",
+      "type": "Trigger",
+      "direction": "output"
+    },
+    {
+      "id": "step_3",
+      "type": "Trigger",
+      "direction": "output"
+    },
+    {
+      "id": "step_4",
+      "type": "Trigger",
+      "direction": "output"
+    },
+    {
+      "id": "done",
+      "type": "Trigger",
+      "direction": "output"
+    },
+    {
+      "id": "cancelled",
+      "type": "Trigger",
+      "direction": "output"
+    },
+    {
+      "id": "active",
+      "type": "Boolean",
+      "direction": "output"
+    },
+    {
+      "id": "step",
+      "type": "Integer",
+      "direction": "output"
+    }
+  ],
+  "properties": {
+    "steps": {
+      "type": "integer",
+      "title": "Number of steps",
+      "default": 4,
+      "minimum": 1,
+      "maximum": 4
+    },
+    "step_1_ms": {
+      "type": "integer",
+      "title": "Step 1 duration (ms)",
+      "default": 1000,
+      "minimum": 1,
+      "maximum": 86400000
+    },
+    "step_2_ms": {
+      "type": "integer",
+      "title": "Step 2 duration (ms)",
+      "default": 1000,
+      "minimum": 1,
+      "maximum": 86400000
+    },
+    "step_3_ms": {
+      "type": "integer",
+      "title": "Step 3 duration (ms)",
+      "default": 1000,
+      "minimum": 1,
+      "maximum": 86400000
+    },
+    "step_4_ms": {
+      "type": "integer",
+      "title": "Step 4 duration (ms)",
+      "default": 1000,
+      "minimum": 1,
+      "maximum": 86400000
+    },
+    "retrigger": {
+      "type": "string",
+      "title": "Start while active",
+      "default": "IGNORE",
+      "enum": [
+        "IGNORE",
+        "RESTART"
+      ]
+    }
+  },
+  "electrical": {
+    "logic_voltage": 0,
+    "max_current_ma": 0,
+    "requires_level_shifter": false,
+    "requires_resistor": false,
+    "safe_state": false,
+    "notes": "Virtual node; no direct hardware access."
+  },
+  "documentation": "docs/SCHEDULING.md"
+}

@@ -1,0 +1,35 @@
+[Unit]
+Description=Moon Pi visual Raspberry Pi workstation
+After=network.target
+StartLimitIntervalSec=60
+StartLimitBurst=5
+
+[Service]
+Type=simple
+User=moonpi
+Group=moonpi
+@GROUPS@
+WorkingDirectory=@RELEASE@
+ExecStart=@RELEASE@/moonpi --config /etc/moonpi/config.json
+EnvironmentFile=/etc/moonpi/environment
+StateDirectory=moonpi
+StateDirectoryMode=0750
+UMask=0077
+Restart=on-failure
+RestartSec=3
+TimeoutStopSec=15
+KillSignal=SIGTERM
+NoNewPrivileges=yes
+ProtectSystem=strict
+ProtectHome=yes
+PrivateTmp=yes
+ProtectKernelTunables=yes
+ProtectKernelModules=yes
+ProtectControlGroups=yes
+RestrictSUIDSGID=yes
+CapabilityBoundingSet=
+# Keep the host GPIO/I2C devices visible; access is restricted by Unix groups.
+PrivateDevices=no
+
+[Install]
+WantedBy=multi-user.target

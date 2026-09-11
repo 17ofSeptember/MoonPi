@@ -1,0 +1,76 @@
+{
+  "schema": "moonpi-component",
+  "schema_version": 1,
+  "revision": 1,
+  "category": "Digital sensors",
+  "aliases": [
+    "infrared",
+    "proximity"
+  ],
+  "driver": {
+    "id": "moonpi.driver.gpio_input",
+    "api_version": 1
+  },
+  "connections": [
+    {
+      "id": "signal",
+      "role": "gpio_input",
+      "voltage": 3.3,
+      "required": true
+    },
+    {
+      "id": "ground",
+      "role": "ground",
+      "voltage": 0,
+      "required": true
+    }
+  ],
+  "ports": [
+    {
+      "id": "value",
+      "type": "Boolean",
+      "direction": "output"
+    },
+    {
+      "id": "pressed",
+      "type": "Trigger",
+      "direction": "output"
+    },
+    {
+      "id": "released",
+      "type": "Trigger",
+      "direction": "output"
+    }
+  ],
+  "properties": {
+    "pull_up": {
+      "type": "boolean",
+      "title": "Internal pull-up (otherwise pull-down)",
+      "default": false
+    },
+    "active_low": {
+      "type": "boolean",
+      "title": "Active LOW",
+      "default": false
+    },
+    "debounce_ms": {
+      "type": "integer",
+      "title": "Debounce (ms)",
+      "default": 10,
+      "minimum": 0,
+      "maximum": 10000
+    }
+  },
+  "electrical": {
+    "logic_voltage": 3.3,
+    "max_current_ma": 0,
+    "requires_level_shifter": false,
+    "requires_resistor": false,
+    "safe_state": false,
+    "notes": "Power the module separately according to its datasheet and share GND. Verify its output never exceeds 3.3 V before connecting signal. Set Active LOW to match the module. Digital detection only; no analog measurement. pressed/released mean activation/deactivation."
+  },
+  "documentation": "https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#gpio",
+  "id": "moonpi.ir-obstacle",
+  "name": "IR obstacle sensor (3.3 V output)",
+  "description": "Digital threshold input from a separately powered module with a verified 3.3 V logic output."
+}

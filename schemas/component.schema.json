@@ -1,0 +1,259 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "schema": {
+      "const": "moonpi-component"
+    },
+    "schema_version": {
+      "const": 1
+    },
+    "revision": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256
+    },
+    "category": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256
+    },
+    "description": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256
+    },
+    "aliases": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 256
+      },
+      "maxItems": 512
+    },
+    "driver": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 256
+        },
+        "api_version": {
+          "const": 1
+        }
+      },
+      "required": [
+        "id",
+        "api_version"
+      ],
+      "additionalProperties": false
+    },
+    "connections": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 256
+          },
+          "role": {
+            "enum": [
+              "gpio_output",
+              "gpio_input",
+              "ground",
+              "power",
+              "i2c_sda",
+              "i2c_scl",
+              "spi_mosi",
+              "spi_miso",
+              "spi_clock",
+              "spi_cs",
+              "uart_tx",
+              "uart_rx",
+              "pwm",
+              "onewire"
+            ]
+          },
+          "required": {
+            "type": "boolean"
+          },
+          "voltage": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 48
+          }
+        },
+        "required": [
+          "id",
+          "role",
+          "required",
+          "voltage"
+        ],
+        "additionalProperties": false
+      },
+      "maxItems": 512
+    },
+    "ports": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 256
+          },
+          "type": {
+            "enum": [
+              "Boolean",
+              "Integer",
+              "Float",
+              "String",
+              "Bytes",
+              "Event",
+              "Trigger",
+              "Timestamp",
+              "GPIO",
+              "PWM",
+              "I2C",
+              "SPI",
+              "UART",
+              "JSON"
+            ]
+          },
+          "direction": {
+            "enum": [
+              "input",
+              "output"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "type",
+          "direction"
+        ],
+        "additionalProperties": false
+      },
+      "maxItems": 512
+    },
+    "properties": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "enum": [
+              "integer",
+              "number",
+              "boolean",
+              "string"
+            ]
+          },
+          "default": {},
+          "title": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 256
+          },
+          "minimum": {
+            "type": "number"
+          },
+          "maximum": {
+            "type": "number"
+          },
+          "enum": {
+            "type": "array"
+          },
+          "description": {
+            "type": "string"
+          },
+          "maxLength": {
+            "type": "integer",
+            "minimum": 1
+          }
+        },
+        "required": [
+          "type",
+          "default",
+          "title"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "electrical": {
+      "type": "object",
+      "properties": {
+        "logic_voltage": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 48
+        },
+        "max_current_ma": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 5000
+        },
+        "requires_level_shifter": {
+          "type": "boolean"
+        },
+        "requires_resistor": {
+          "type": "boolean"
+        },
+        "safe_state": {
+          "type": "boolean"
+        },
+        "notes": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "logic_voltage",
+        "max_current_ma",
+        "requires_level_shifter",
+        "requires_resistor",
+        "safe_state",
+        "notes"
+      ],
+      "additionalProperties": false
+    },
+    "documentation": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256
+    },
+    "extensions": {
+      "type": "object"
+    }
+  },
+  "required": [
+    "schema",
+    "schema_version",
+    "revision",
+    "id",
+    "name",
+    "category",
+    "description",
+    "aliases",
+    "driver",
+    "connections",
+    "ports",
+    "properties",
+    "electrical",
+    "documentation"
+  ],
+  "additionalProperties": false
+}

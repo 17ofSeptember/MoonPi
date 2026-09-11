@@ -1,0 +1,50 @@
+{
+  "schema": "moonpi-component",
+  "schema_version": 1,
+  "revision": 1,
+  "id": "moonpi.digital-output",
+  "name": "Digital output",
+  "category": "Basic electronics",
+  "description": "3.3 V logic output for a low-current input stage; never directly drive a motor.",
+  "aliases": [],
+  "driver": {
+    "id": "moonpi.driver.gpio_output",
+    "api_version": 1
+  },
+  "connections": [
+    {
+      "id": "signal",
+      "role": "gpio_output",
+      "required": true,
+      "voltage": 3.3
+    },
+    {
+      "id": "ground",
+      "role": "ground",
+      "required": true,
+      "voltage": 0
+    }
+  ],
+  "ports": [
+    {
+      "id": "toggle",
+      "type": "Trigger",
+      "direction": "input"
+    },
+    {
+      "id": "set",
+      "type": "Boolean",
+      "direction": "input"
+    }
+  ],
+  "properties": {},
+  "electrical": {
+    "logic_voltage": 3.3,
+    "max_current_ma": 1,
+    "requires_level_shifter": false,
+    "requires_resistor": false,
+    "safe_state": false,
+    "notes": "3.3 V logic signal only, maximum 1 mA input load. Use an externally powered driver for loads. Output and Stop safe state are LOW."
+  },
+  "documentation": "https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#gpio"
+}

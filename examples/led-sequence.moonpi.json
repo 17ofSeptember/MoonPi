@@ -1,0 +1,126 @@
+{
+  "format": "moonpi-project",
+  "version": 1,
+  "id": "10000000-0000-4000-8000-000000000001",
+  "name": "Four-step LED sequence",
+  "board": {
+    "definition": "moonpi.board.rpi3b-plus",
+    "node_id": "10000000-0000-4000-8000-000000000002",
+    "position": {
+      "x": 80,
+      "y": 60
+    }
+  },
+  "nodes": [
+    {
+      "id": "10000000-0000-4000-8000-000000000003",
+      "component": "moonpi.led",
+      "position": {
+        "x": 1160,
+        "y": 80
+      },
+      "properties": {
+        "resistor_ohms": 1000
+      }
+    },
+    {
+      "id": "10000000-0000-4000-8000-000000000004",
+      "component": "moonpi.logic.sequence",
+      "position": {
+        "x": 560,
+        "y": 40
+      },
+      "properties": {
+        "steps": 4,
+        "step_1_ms": 1000,
+        "step_2_ms": 1000,
+        "step_3_ms": 1000,
+        "step_4_ms": 1000,
+        "retrigger": "IGNORE"
+      }
+    },
+    {
+      "id": "6c012917-d5e1-4efa-9b5e-fb4483b1da60",
+      "component": "moonpi.logic.latch",
+      "position": {
+        "x": 880,
+        "y": 80
+      },
+      "properties": {}
+    }
+  ],
+  "edges": [
+    {
+      "id": "20000000-0000-4000-8000-000000000001",
+      "kind": "hardware",
+      "source": "10000000-0000-4000-8000-000000000002",
+      "source_port": "header.11",
+      "target": "10000000-0000-4000-8000-000000000003",
+      "target_port": "signal"
+    },
+    {
+      "id": "20000000-0000-4000-8000-000000000002",
+      "kind": "hardware",
+      "source": "10000000-0000-4000-8000-000000000002",
+      "source_port": "header.6",
+      "target": "10000000-0000-4000-8000-000000000003",
+      "target_port": "ground"
+    },
+    {
+      "id": "6ca40dce-f241-43bd-b4bc-8ebd3340546b",
+      "kind": "logic",
+      "source": "10000000-0000-4000-8000-000000000004",
+      "source_port": "step_1",
+      "target": "6c012917-d5e1-4efa-9b5e-fb4483b1da60",
+      "target_port": "set"
+    },
+    {
+      "id": "53cbce71-0c71-49fb-acf1-100402b9ce8b",
+      "kind": "logic",
+      "source": "10000000-0000-4000-8000-000000000004",
+      "source_port": "step_2",
+      "target": "6c012917-d5e1-4efa-9b5e-fb4483b1da60",
+      "target_port": "reset"
+    },
+    {
+      "id": "30e27767-8075-47e9-98da-37540257627c",
+      "kind": "logic",
+      "source": "10000000-0000-4000-8000-000000000004",
+      "source_port": "step_3",
+      "target": "6c012917-d5e1-4efa-9b5e-fb4483b1da60",
+      "target_port": "set"
+    },
+    {
+      "id": "1c4bde04-e128-4d68-8b9a-70665972c2b1",
+      "kind": "logic",
+      "source": "10000000-0000-4000-8000-000000000004",
+      "source_port": "step_4",
+      "target": "6c012917-d5e1-4efa-9b5e-fb4483b1da60",
+      "target_port": "reset"
+    },
+    {
+      "id": "63032373-c1de-4768-8d86-11887f06bc9c",
+      "kind": "logic",
+      "source": "10000000-0000-4000-8000-000000000004",
+      "source_port": "cancelled",
+      "target": "6c012917-d5e1-4efa-9b5e-fb4483b1da60",
+      "target_port": "reset"
+    },
+    {
+      "id": "e14183a9-c5e3-4808-ad8c-5b2024eeb541",
+      "kind": "logic",
+      "source": "10000000-0000-4000-8000-000000000004",
+      "source_port": "done",
+      "target": "6c012917-d5e1-4efa-9b5e-fb4483b1da60",
+      "target_port": "reset"
+    },
+    {
+      "id": "d016f6f5-6a77-40ae-a437-bd2ddb5eadac",
+      "kind": "logic",
+      "source": "6c012917-d5e1-4efa-9b5e-fb4483b1da60",
+      "source_port": "value",
+      "target": "10000000-0000-4000-8000-000000000003",
+      "target_port": "set"
+    }
+  ]
+}

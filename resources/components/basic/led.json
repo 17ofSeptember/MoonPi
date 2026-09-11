@@ -1,0 +1,58 @@
+{
+  "schema": "moonpi-component",
+  "schema_version": 1,
+  "revision": 1,
+  "id": "moonpi.led",
+  "name": "LED",
+  "category": "Basic electronics",
+  "description": "Current-limited LED with explicit GPIO and ground wiring.",
+  "aliases": [],
+  "driver": {
+    "id": "moonpi.driver.gpio_output",
+    "api_version": 1
+  },
+  "connections": [
+    {
+      "id": "signal",
+      "role": "gpio_output",
+      "required": true,
+      "voltage": 3.3
+    },
+    {
+      "id": "ground",
+      "role": "ground",
+      "required": true,
+      "voltage": 0
+    }
+  ],
+  "ports": [
+    {
+      "id": "toggle",
+      "type": "Trigger",
+      "direction": "input"
+    },
+    {
+      "id": "set",
+      "type": "Boolean",
+      "direction": "input"
+    }
+  ],
+  "properties": {
+    "resistor_ohms": {
+      "type": "integer",
+      "title": "Series resistor (ohms)",
+      "default": 1000,
+      "minimum": 680,
+      "maximum": 100000
+    }
+  },
+  "electrical": {
+    "logic_voltage": 3.3,
+    "max_current_ma": 5,
+    "requires_level_shifter": false,
+    "requires_resistor": true,
+    "safe_state": false,
+    "notes": "Use a series resistor. Current validation conservatively assumes zero LED forward drop."
+  },
+  "documentation": "https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#gpio"
+}

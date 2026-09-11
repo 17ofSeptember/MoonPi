@@ -1,0 +1,49 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "version": {
+      "const": 1
+    },
+    "bind": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256
+    },
+    "port": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 65535
+    },
+    "resources": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256
+    },
+    "schemas": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256
+    },
+    "web": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256
+    },
+    "data": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256
+    },
+    "mode": {
+      "enum": ["simulation", "hardware"]
+    },
+    "gpio_chip": {
+      "type": "string",
+      "pattern": "^/dev/gpiochip[0-9]+$",
+      "maxLength": 64
+    }
+  },
+  "required": ["version"],
+  "additionalProperties": false
+}

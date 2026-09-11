@@ -1,0 +1,504 @@
+{
+  "schema": "moonpi-board",
+  "schema_version": 1,
+  "id": "moonpi.board.rpi3b-plus",
+  "name": "Raspberry Pi 3 B+",
+  "logic_voltage": 3.3,
+  "max_gpio_current_ma": 8,
+  "max_total_current_ma": 40,
+  "documentation": "https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#gpio",
+  "pins": [
+    {
+      "id": "header.1",
+      "physical": 1,
+      "bcm": null,
+      "label": "3.3V",
+      "kind": "power",
+      "voltage": 3.3,
+      "capabilities": [],
+      "reserved": false
+    },
+    {
+      "id": "header.2",
+      "physical": 2,
+      "bcm": null,
+      "label": "5V",
+      "kind": "power",
+      "voltage": 5,
+      "capabilities": [],
+      "reserved": false
+    },
+    {
+      "id": "header.3",
+      "physical": 3,
+      "bcm": 2,
+      "label": "GPIO2",
+      "kind": "gpio",
+      "voltage": 3.3,
+      "capabilities": [
+        "gpio_input",
+        "gpio_output",
+        "i2c1.sda"
+      ],
+      "reserved": false
+    },
+    {
+      "id": "header.4",
+      "physical": 4,
+      "bcm": null,
+      "label": "5V",
+      "kind": "power",
+      "voltage": 5,
+      "capabilities": [],
+      "reserved": false
+    },
+    {
+      "id": "header.5",
+      "physical": 5,
+      "bcm": 3,
+      "label": "GPIO3",
+      "kind": "gpio",
+      "voltage": 3.3,
+      "capabilities": [
+        "gpio_input",
+        "gpio_output",
+        "i2c1.scl"
+      ],
+      "reserved": false
+    },
+    {
+      "id": "header.6",
+      "physical": 6,
+      "bcm": null,
+      "label": "GND",
+      "kind": "ground",
+      "voltage": 0,
+      "capabilities": [],
+      "reserved": false
+    },
+    {
+      "id": "header.7",
+      "physical": 7,
+      "bcm": 4,
+      "label": "GPIO4",
+      "kind": "gpio",
+      "voltage": 3.3,
+      "capabilities": [
+        "gpio_input",
+        "gpio_output",
+        "onewire"
+      ],
+      "reserved": false
+    },
+    {
+      "id": "header.8",
+      "physical": 8,
+      "bcm": 14,
+      "label": "GPIO14",
+      "kind": "gpio",
+      "voltage": 3.3,
+      "capabilities": [
+        "gpio_input",
+        "gpio_output",
+        "uart0.tx"
+      ],
+      "reserved": false
+    },
+    {
+      "id": "header.9",
+      "physical": 9,
+      "bcm": null,
+      "label": "GND",
+      "kind": "ground",
+      "voltage": 0,
+      "capabilities": [],
+      "reserved": false
+    },
+    {
+      "id": "header.10",
+      "physical": 10,
+      "bcm": 15,
+      "label": "GPIO15",
+      "kind": "gpio",
+      "voltage": 3.3,
+      "capabilities": [
+        "gpio_input",
+        "gpio_output",
+        "uart0.rx"
+      ],
+      "reserved": false
+    },
+    {
+      "id": "header.11",
+      "physical": 11,
+      "bcm": 17,
+      "label": "GPIO17",
+      "kind": "gpio",
+      "voltage": 3.3,
+      "capabilities": [
+        "gpio_input",
+        "gpio_output"
+      ],
+      "reserved": false
+    },
+    {
+      "id": "header.12",
+      "physical": 12,
+      "bcm": 18,
+      "label": "GPIO18",
+      "kind": "gpio",
+      "voltage": 3.3,
+      "capabilities": [
+        "gpio_input",
+        "gpio_output",
+        "pwm0"
+      ],
+      "reserved": false
+    },
+    {
+      "id": "header.13",
+      "physical": 13,
+      "bcm": 27,
+      "label": "GPIO27",
+      "kind": "gpio",
+      "voltage": 3.3,
+      "capabilities": [
+        "gpio_input",
+        "gpio_output"
+      ],
+      "reserved": false
+    },
+    {
+      "id": "header.14",
+      "physical": 14,
+      "bcm": null,
+      "label": "GND",
+      "kind": "ground",
+      "voltage": 0,
+      "capabilities": [],
+      "reserved": false
+    },
+    {
+      "id": "header.15",
+      "physical": 15,
+      "bcm": 22,
+      "label": "GPIO22",
+      "kind": "gpio",
+      "voltage": 3.3,
+      "capabilities": [
+        "gpio_input",
+        "gpio_output"
+      ],
+      "reserved": false
+    },
+    {
+      "id": "header.16",
+      "physical": 16,
+      "bcm": 23,
+      "label": "GPIO23",
+      "kind": "gpio",
+      "voltage": 3.3,
+      "capabilities": [
+        "gpio_input",
+        "gpio_output"
+      ],
+      "reserved": false
+    },
+    {
+      "id": "header.17",
+      "physical": 17,
+      "bcm": null,
+      "label": "3.3V",
+      "kind": "power",
+      "voltage": 3.3,
+      "capabilities": [],
+      "reserved": false
+    },
+    {
+      "id": "header.18",
+      "physical": 18,
+      "bcm": 24,
+      "label": "GPIO24",
+      "kind": "gpio",
+      "voltage": 3.3,
+      "capabilities": [
+        "gpio_input",
+        "gpio_output"
+      ],
+      "reserved": false
+    },
+    {
+      "id": "header.19",
+      "physical": 19,
+      "bcm": 10,
+      "label": "GPIO10",
+      "kind": "gpio",
+      "voltage": 3.3,
+      "capabilities": [
+        "gpio_input",
+        "gpio_output",
+        "spi0.mosi"
+      ],
+      "reserved": false
+    },
+    {
+      "id": "header.20",
+      "physical": 20,
+      "bcm": null,
+      "label": "GND",
+      "kind": "ground",
+      "voltage": 0,
+      "capabilities": [],
+      "reserved": false
+    },
+    {
+      "id": "header.21",
+      "physical": 21,
+      "bcm": 9,
+      "label": "GPIO9",
+      "kind": "gpio",
+      "voltage": 3.3,
+      "capabilities": [
+        "gpio_input",
+        "gpio_output",
+        "spi0.miso"
+      ],
+      "reserved": false
+    },
+    {
+      "id": "header.22",
+      "physical": 22,
+      "bcm": 25,
+      "label": "GPIO25",
+      "kind": "gpio",
+      "voltage": 3.3,
+      "capabilities": [
+        "gpio_input",
+        "gpio_output"
+      ],
+      "reserved": false
+    },
+    {
+      "id": "header.23",
+      "physical": 23,
+      "bcm": 11,
+      "label": "GPIO11",
+      "kind": "gpio",
+      "voltage": 3.3,
+      "capabilities": [
+        "gpio_input",
+        "gpio_output",
+        "spi0.clock"
+      ],
+      "reserved": false
+    },
+    {
+      "id": "header.24",
+      "physical": 24,
+      "bcm": 8,
+      "label": "GPIO8",
+      "kind": "gpio",
+      "voltage": 3.3,
+      "capabilities": [
+        "gpio_input",
+        "gpio_output",
+        "spi0.cs0"
+      ],
+      "reserved": false
+    },
+    {
+      "id": "header.25",
+      "physical": 25,
+      "bcm": null,
+      "label": "GND",
+      "kind": "ground",
+      "voltage": 0,
+      "capabilities": [],
+      "reserved": false
+    },
+    {
+      "id": "header.26",
+      "physical": 26,
+      "bcm": 7,
+      "label": "GPIO7",
+      "kind": "gpio",
+      "voltage": 3.3,
+      "capabilities": [
+        "gpio_input",
+        "gpio_output",
+        "spi0.cs1"
+      ],
+      "reserved": false
+    },
+    {
+      "id": "header.27",
+      "physical": 27,
+      "bcm": 0,
+      "label": "ID SDA",
+      "kind": "reserved",
+      "voltage": 3.3,
+      "capabilities": [],
+      "reserved": true
+    },
+    {
+      "id": "header.28",
+      "physical": 28,
+      "bcm": 1,
+      "label": "ID SCL",
+      "kind": "reserved",
+      "voltage": 3.3,
+      "capabilities": [],
+      "reserved": true
+    },
+    {
+      "id": "header.29",
+      "physical": 29,
+      "bcm": 5,
+      "label": "GPIO5",
+      "kind": "gpio",
+      "voltage": 3.3,
+      "capabilities": [
+        "gpio_input",
+        "gpio_output"
+      ],
+      "reserved": false
+    },
+    {
+      "id": "header.30",
+      "physical": 30,
+      "bcm": null,
+      "label": "GND",
+      "kind": "ground",
+      "voltage": 0,
+      "capabilities": [],
+      "reserved": false
+    },
+    {
+      "id": "header.31",
+      "physical": 31,
+      "bcm": 6,
+      "label": "GPIO6",
+      "kind": "gpio",
+      "voltage": 3.3,
+      "capabilities": [
+        "gpio_input",
+        "gpio_output"
+      ],
+      "reserved": false
+    },
+    {
+      "id": "header.32",
+      "physical": 32,
+      "bcm": 12,
+      "label": "GPIO12",
+      "kind": "gpio",
+      "voltage": 3.3,
+      "capabilities": [
+        "gpio_input",
+        "gpio_output",
+        "pwm0"
+      ],
+      "reserved": false
+    },
+    {
+      "id": "header.33",
+      "physical": 33,
+      "bcm": 13,
+      "label": "GPIO13",
+      "kind": "gpio",
+      "voltage": 3.3,
+      "capabilities": [
+        "gpio_input",
+        "gpio_output",
+        "pwm1"
+      ],
+      "reserved": false
+    },
+    {
+      "id": "header.34",
+      "physical": 34,
+      "bcm": null,
+      "label": "GND",
+      "kind": "ground",
+      "voltage": 0,
+      "capabilities": [],
+      "reserved": false
+    },
+    {
+      "id": "header.35",
+      "physical": 35,
+      "bcm": 19,
+      "label": "GPIO19",
+      "kind": "gpio",
+      "voltage": 3.3,
+      "capabilities": [
+        "gpio_input",
+        "gpio_output",
+        "pwm1"
+      ],
+      "reserved": false
+    },
+    {
+      "id": "header.36",
+      "physical": 36,
+      "bcm": 16,
+      "label": "GPIO16",
+      "kind": "gpio",
+      "voltage": 3.3,
+      "capabilities": [
+        "gpio_input",
+        "gpio_output"
+      ],
+      "reserved": false
+    },
+    {
+      "id": "header.37",
+      "physical": 37,
+      "bcm": 26,
+      "label": "GPIO26",
+      "kind": "gpio",
+      "voltage": 3.3,
+      "capabilities": [
+        "gpio_input",
+        "gpio_output"
+      ],
+      "reserved": false
+    },
+    {
+      "id": "header.38",
+      "physical": 38,
+      "bcm": 20,
+      "label": "GPIO20",
+      "kind": "gpio",
+      "voltage": 3.3,
+      "capabilities": [
+        "gpio_input",
+        "gpio_output"
+      ],
+      "reserved": false
+    },
+    {
+      "id": "header.39",
+      "physical": 39,
+      "bcm": null,
+      "label": "GND",
+      "kind": "ground",
+      "voltage": 0,
+      "capabilities": [],
+      "reserved": false
+    },
+    {
+      "id": "header.40",
+      "physical": 40,
+      "bcm": 21,
+      "label": "GPIO21",
+      "kind": "gpio",
+      "voltage": 3.3,
+      "capabilities": [
+        "gpio_input",
+        "gpio_output"
+      ],
+      "reserved": false
+    }
+  ]
+}

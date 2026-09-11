@@ -1,0 +1,73 @@
+{
+  "schema": "moonpi-component",
+  "schema_version": 1,
+  "revision": 1,
+  "id": "moonpi.pin-script",
+  "name": "Custom pin script",
+  "category": "Scripting",
+  "description": "Write Lua to control one assigned digital output. Runs on Start, run triggers and Boolean input events.",
+  "aliases": [
+    "script",
+    "Lua",
+    "custom",
+    "code",
+    "GPIO"
+  ],
+  "driver": {
+    "id": "moonpi.driver.pin_script",
+    "api_version": 1
+  },
+  "connections": [
+    {
+      "id": "signal",
+      "role": "gpio_output",
+      "required": true,
+      "voltage": 3.3
+    },
+    {
+      "id": "ground",
+      "role": "ground",
+      "required": true,
+      "voltage": 0
+    }
+  ],
+  "ports": [
+    {
+      "id": "run",
+      "type": "Trigger",
+      "direction": "input"
+    },
+    {
+      "id": "input",
+      "type": "Boolean",
+      "direction": "input"
+    },
+    {
+      "id": "value",
+      "type": "Boolean",
+      "direction": "output"
+    },
+    {
+      "id": "done",
+      "type": "Trigger",
+      "direction": "output"
+    }
+  ],
+  "properties": {
+    "script": {
+      "type": "string",
+      "title": "Lua script",
+      "default": "-- Connect an Interval tick to run to blink.\nif event == \"start\" then\n  pin.write(false)\nelseif event == \"input\" then\n  pin.write(value)\nelse\n  pin.write(not pin.read())\nend",
+      "maxLength": 16384
+    }
+  },
+  "electrical": {
+    "logic_voltage": 3.3,
+    "max_current_ma": 1,
+    "requires_level_shifter": false,
+    "requires_resistor": false,
+    "safe_state": false,
+    "notes": "3.3 V logic signal only, maximum 1 mA input load. Use an externally powered driver for loads. Output and Stop safe state are LOW."
+  },
+  "documentation": "https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#gpio"
+}

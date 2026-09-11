@@ -1,0 +1,45 @@
+{
+  "schema": "moonpi-component",
+  "schema_version": 1,
+  "revision": 1,
+  "id": "moonpi.logic.delay",
+  "name": "Delay",
+  "category": "Timing",
+  "description": "Emits each trigger after a bounded delay.",
+  "aliases": [],
+  "driver": {
+    "id": "moonpi.driver.delay",
+    "api_version": 1
+  },
+  "connections": [],
+  "ports": [
+    {
+      "id": "trigger",
+      "type": "Trigger",
+      "direction": "input"
+    },
+    {
+      "id": "done",
+      "type": "Trigger",
+      "direction": "output"
+    }
+  ],
+  "properties": {
+    "delay_ms": {
+      "type": "integer",
+      "title": "Delay (ms)",
+      "default": 1000,
+      "minimum": 1,
+      "maximum": 86400000
+    }
+  },
+  "electrical": {
+    "logic_voltage": 0,
+    "max_current_ma": 0,
+    "requires_level_shifter": false,
+    "requires_resistor": false,
+    "safe_state": false,
+    "notes": "Virtual node; no direct hardware access."
+  },
+  "documentation": "docs/GRAPH_FORMAT.md"
+}

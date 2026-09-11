@@ -1,0 +1,32 @@
+{
+  "schema": "moonpi-component",
+  "schema_version": 1,
+  "revision": 1,
+  "id": "moonpi.logic.display",
+  "name": "Value display",
+  "category": "Data",
+  "description": "Displays the most recent numeric value.",
+  "aliases": [],
+  "driver": {
+    "id": "moonpi.driver.display",
+    "api_version": 1
+  },
+  "connections": [],
+  "ports": [
+    {
+      "id": "input",
+      "type": "Float",
+      "direction": "input"
+    }
+  ],
+  "properties": {},
+  "electrical": {
+    "logic_voltage": 0,
+    "max_current_ma": 0,
+    "requires_level_shifter": false,
+    "requires_resistor": false,
+    "safe_state": false,
+    "notes": "Virtual node; no direct hardware access."
+  },
+  "documentation": "docs/GRAPH_FORMAT.md"
+}

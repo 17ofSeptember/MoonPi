@@ -1,0 +1,54 @@
+{
+  "schema": "moonpi-component",
+  "schema_version": 1,
+  "revision": 1,
+  "id": "moonpi.logic.cron",
+  "name": "Calendar schedule",
+  "category": "Timing",
+  "description": "UTC calendar trigger with minute precision. Missed events are skipped.",
+  "aliases": [],
+  "driver": {
+    "id": "moonpi.driver.cron",
+    "api_version": 1
+  },
+  "connections": [],
+  "ports": [
+    {
+      "id": "tick",
+      "type": "Trigger",
+      "direction": "output"
+    }
+  ],
+  "properties": {
+    "expression": {
+      "type": "string",
+      "title": "Cron: minute hour day month weekday (UTC)",
+      "default": "*/5 * * * *"
+    },
+    "timezone": {
+      "type": "string",
+      "title": "Timezone",
+      "default": "UTC",
+      "enum": [
+        "UTC"
+      ]
+    },
+    "missed": {
+      "type": "string",
+      "title": "Missed events",
+      "default": "SKIP_MISSED",
+      "enum": [
+        "SKIP_MISSED"
+      ]
+    }
+  },
+  "electrical": {
+    "logic_voltage": 0,
+    "max_current_ma": 0,
+    "requires_level_shifter": false,
+    "requires_resistor": false,
+    "safe_state": false,
+    "notes": "Requires explicit Run. Calendar uses UTC; interval and delay use monotonic time."
+  },
+  "documentation": "docs/SCHEDULING.md"
+}

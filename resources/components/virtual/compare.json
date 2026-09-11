@@ -1,0 +1,57 @@
+{
+  "schema": "moonpi-component",
+  "schema_version": 1,
+  "revision": 1,
+  "id": "moonpi.logic.compare",
+  "name": "Compare",
+  "category": "Logic",
+  "description": "Compares a number against a threshold.",
+  "aliases": [],
+  "driver": {
+    "id": "moonpi.driver.compare",
+    "api_version": 1
+  },
+  "connections": [],
+  "ports": [
+    {
+      "id": "input",
+      "type": "Float",
+      "direction": "input"
+    },
+    {
+      "id": "value",
+      "type": "Boolean",
+      "direction": "output"
+    }
+  ],
+  "properties": {
+    "threshold": {
+      "type": "number",
+      "title": "Threshold",
+      "default": 25,
+      "minimum": -1000000000,
+      "maximum": 1000000000
+    },
+    "operation": {
+      "type": "string",
+      "title": "Comparison",
+      "default": "gt",
+      "enum": [
+        "gt",
+        "gte",
+        "lt",
+        "lte",
+        "eq"
+      ]
+    }
+  },
+  "electrical": {
+    "logic_voltage": 0,
+    "max_current_ma": 0,
+    "requires_level_shifter": false,
+    "requires_resistor": false,
+    "safe_state": false,
+    "notes": "Virtual node; no direct hardware access."
+  },
+  "documentation": "docs/GRAPH_FORMAT.md"
+}

@@ -1,0 +1,122 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "schema": {
+      "const": "moonpi-board"
+    },
+    "schema_version": {
+      "const": 1
+    },
+    "id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256
+    },
+    "logic_voltage": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 48
+    },
+    "max_gpio_current_ma": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "max_total_current_ma": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000
+    },
+    "pins": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 256
+          },
+          "physical": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 256
+          },
+          "bcm": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0,
+            "maximum": 255
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 256
+          },
+          "kind": {
+            "enum": [
+              "gpio",
+              "ground",
+              "power",
+              "reserved"
+            ]
+          },
+          "voltage": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 48
+          },
+          "capabilities": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256
+            },
+            "maxItems": 512
+          },
+          "reserved": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "id",
+          "physical",
+          "bcm",
+          "label",
+          "kind",
+          "voltage",
+          "capabilities",
+          "reserved"
+        ],
+        "additionalProperties": false
+      },
+      "maxItems": 256
+    },
+    "documentation": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256
+    }
+  },
+  "required": [
+    "schema",
+    "schema_version",
+    "id",
+    "name",
+    "logic_voltage",
+    "max_gpio_current_ma",
+    "max_total_current_ma",
+    "pins",
+    "documentation"
+  ],
+  "additionalProperties": false
+}

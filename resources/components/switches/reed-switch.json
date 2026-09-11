@@ -1,0 +1,77 @@
+{
+  "schema": "moonpi-component",
+  "schema_version": 1,
+  "revision": 1,
+  "category": "Switches",
+  "aliases": [
+    "door",
+    "magnet",
+    "contact"
+  ],
+  "driver": {
+    "id": "moonpi.driver.gpio_input",
+    "api_version": 1
+  },
+  "connections": [
+    {
+      "id": "signal",
+      "role": "gpio_input",
+      "voltage": 3.3,
+      "required": true
+    },
+    {
+      "id": "ground",
+      "role": "ground",
+      "voltage": 0,
+      "required": true
+    }
+  ],
+  "ports": [
+    {
+      "id": "value",
+      "type": "Boolean",
+      "direction": "output"
+    },
+    {
+      "id": "pressed",
+      "type": "Trigger",
+      "direction": "output"
+    },
+    {
+      "id": "released",
+      "type": "Trigger",
+      "direction": "output"
+    }
+  ],
+  "properties": {
+    "pull_up": {
+      "type": "boolean",
+      "title": "Internal pull-up (otherwise pull-down)",
+      "default": true
+    },
+    "active_low": {
+      "type": "boolean",
+      "title": "Active LOW",
+      "default": true
+    },
+    "debounce_ms": {
+      "type": "integer",
+      "title": "Debounce (ms)",
+      "default": 30,
+      "minimum": 0,
+      "maximum": 10000
+    }
+  },
+  "electrical": {
+    "logic_voltage": 3.3,
+    "max_current_ma": 0,
+    "requires_level_shifter": false,
+    "requires_resistor": false,
+    "safe_state": false,
+    "notes": "Dry-contact switch only: signal to GPIO, other contact to GND. Default internal pull-up and active LOW. pressed means activated; released means deactivated. No external voltage."
+  },
+  "documentation": "https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#gpio",
+  "id": "moonpi.reed-switch",
+  "name": "Magnetic reed switch",
+  "description": "Passive magnetic contact for doors and enclosures."
+}

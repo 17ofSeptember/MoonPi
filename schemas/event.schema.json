@@ -1,0 +1,32 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "version": {
+      "const": 1
+    },
+    "type": {
+      "enum": [
+        "StateSnapshot"
+      ]
+    },
+    "sequence": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "timestamp_ms": {
+      "type": "integer"
+    },
+    "state": {
+      "type": "object"
+    }
+  },
+  "required": [
+    "version",
+    "type",
+    "sequence",
+    "timestamp_ms",
+    "state"
+  ],
+  "additionalProperties": false
+}

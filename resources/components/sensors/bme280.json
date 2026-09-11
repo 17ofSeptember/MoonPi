@@ -1,0 +1,91 @@
+{
+  "schema": "moonpi-component",
+  "schema_version": 1,
+  "revision": 1,
+  "id": "moonpi.sensor.bme280",
+  "name": "BME280",
+  "category": "Sensors",
+  "description": "I2C temperature, humidity and pressure sensor; requires a 3.3V compatible breakout.",
+  "aliases": [
+    "temperature",
+    "humidity",
+    "pressure"
+  ],
+  "driver": {
+    "id": "moonpi.driver.bme280",
+    "api_version": 1
+  },
+  "connections": [
+    {
+      "id": "sda",
+      "role": "i2c_sda",
+      "voltage": 3.3,
+      "required": true
+    },
+    {
+      "id": "scl",
+      "role": "i2c_scl",
+      "voltage": 3.3,
+      "required": true
+    },
+    {
+      "id": "power",
+      "role": "power",
+      "voltage": 3.3,
+      "required": true
+    },
+    {
+      "id": "ground",
+      "role": "ground",
+      "voltage": 0,
+      "required": true
+    }
+  ],
+  "ports": [
+    {
+      "id": "read",
+      "type": "Trigger",
+      "direction": "input"
+    },
+    {
+      "id": "temperature",
+      "type": "Float",
+      "direction": "output"
+    },
+    {
+      "id": "pressure",
+      "type": "Float",
+      "direction": "output"
+    },
+    {
+      "id": "humidity",
+      "type": "Float",
+      "direction": "output"
+    },
+    {
+      "id": "reading",
+      "type": "JSON",
+      "direction": "output"
+    }
+  ],
+  "properties": {
+    "address": {
+      "type": "integer",
+      "title": "I2C address (118 = 0x76, 119 = 0x77)",
+      "default": 118,
+      "enum": [
+        118,
+        119
+      ]
+    }
+  },
+  "electrical": {
+    "logic_voltage": 3.3,
+    "max_current_ma": 1,
+    "requires_level_shifter": false,
+    "requires_resistor": false,
+    "safe_state": false,
+    "notes": "Use 3.3V supply and 3.3V pull-ups. Verify breakout ratings and address strap. Pressure is hPa; temperature is Celsius; humidity is percent."
+  },
+  "documentation": "https://www.bosch-sensortec.com/products/environmental-sensors/humidity-sensors-bme280/"
+}
