@@ -4,7 +4,7 @@
     
 <img width="500" height="500" alt="logo-removebg-preview" src="https://github.com/user-attachments/assets/d257b744-3d3a-4edb-9d9b-f99af665692a" />
 
-**MoonPi** is a visual, node-based hardware workstation for the Raspberry Pi.
+**MoonPi** is a visual, node-based hardware workstation for the Raspberry Pi.</div>
 
 Instead of writing a full program every time you want to control an LED, read a button, run a timer, or connect hardware together, MoonPi lets you build your project visually in a web browser.
 
@@ -696,4 +696,4 @@ See the [`LICENSE`](LICENSE) file for the complete license text.
 MoonPi controls physical electronic hardware. Incorrect wiring or unsuitable components can damage a Raspberry Pi, connected equipment, or other electronics.
 
 The software is provided without warranty. Always verify your wiring and component specifications before applying power.
-</div>
+
