@@ -53,8 +53,8 @@ MoonPi is intended to be understandable by beginners while still being useful fo
 
 MoonPi 0.8.0 Beta currently targets:
 
-- **Raspberry Pi 3 Model B+**
-- Linux / Raspberry Pi OS
+- **Raspberry Pi 3 Model B+** (Buy me a Pi 5 https://buymeacoffee.com/17ofseptember ) 
+- Linux / Raspberry Pi OS 64bit
 - Standard 40-pin GPIO header
 - GPIO character device interface, normally `/dev/gpiochip0`
 
@@ -64,7 +64,7 @@ Hardware support is still being developed. Other Raspberry Pi models may be adde
 
 # Installing MoonPi on a Raspberry Pi
 
-These instructions assume you are using a **Raspberry Pi 3 B+** running a recent version of Raspberry Pi OS.
+These instructions assume you are using a **Raspberry Pi 3 B+** running a recent version of Raspberry Pi OS 64bit.
 
 ## 1. Update your Raspberry Pi
 
