@@ -1,5 +1,7 @@
 <div align="center">
+
 # MoonPi
+    
 <img width="500" height="500" alt="logo-removebg-preview" src="https://github.com/user-attachments/assets/d257b744-3d3a-4edb-9d9b-f99af665692a" />
 
 **MoonPi** is a visual, node-based hardware workstation for the Raspberry Pi.
